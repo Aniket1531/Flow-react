@@ -1,11 +1,15 @@
-import React, { Component } from 'react'
+// @flow
+
+import * as React from 'react';
+import  { Component } from 'react'
+import type {Node} from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 
 
 
 
-export class NavbarC extends Component {
-  render() {
+export class NavbarC extends Component<{}> {
+  render(): React.Node {
     return (
     <Navbar bg="dark" variant="dark">
     <Navbar.Brand href="#home">Reducer</Navbar.Brand>

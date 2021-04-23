@@ -1,10 +1,17 @@
-import React, {Component }  from 'react'
+// @flow
+import * as React from 'react';
+import  { Component } from 'react'
+import type {Node} from 'react';
 import { Alert } from 'react-bootstrap';
 import {connect} from "react-redux"
 
+type props = {
+  variant : string,
+  modalContent : string,
+  closeModal : function
+}
 
-
-export class Modal extends Component {
+export class Modal extends Component<props> {
 
   componentDidMount(){
     
@@ -14,7 +21,7 @@ export class Modal extends Component {
   ,3000)
 
   }
-  render() {
+  render(): React.Node {
     return (
         <div>
             <Alert variant={this.props.variant}>
@@ -28,21 +35,5 @@ export class Modal extends Component {
 }
 
 
-const mapStateToProps = state =>{
-  return {
-      modalContent : state.modalContent,
-      variant : state.variant
 
-  }
-}
-
-const mapDispatchToProps = dispatch =>{
-
-  return {
-    
-    closeModal : ()=> dispatch({type:'CLOSED_MODAL'})
-
-}
-}
-
-export default connect(mapStateToProps,mapDispatchToProps)(Modal)
+export default Modal

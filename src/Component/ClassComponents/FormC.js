@@ -1,4 +1,4 @@
-
+// @flow
 import * as React from 'react';
 import  { Component } from 'react'
 import type {Node} from 'react';
@@ -10,6 +10,9 @@ type props = {
      isModalOpen : boolean,
     addPerson : function,
     noValue : function,
+    variant : string,
+  modalContent : string,
+  closeModal : function
     // people : Array<{}>,
     // deletePerson : function
 }
@@ -32,7 +35,7 @@ class FormC extends Component<props,state> {
     }
     
     
-    handleAdd = (e:SyntheticEvent<EventTarget>) =>{
+    handleAdd  : function = (e:SyntheticEvent<EventTarget>)  =>{
 
     e.preventDefault()
     
@@ -50,11 +53,11 @@ class FormC extends Component<props,state> {
   
 
   render(): React.Node  {
-    handleAdd : function
+
     return (
       <div>
         <div>
-        {this.props.isModalOpen && <Modal/>}
+        {this.props.isModalOpen && <Modal modalContent={this.props. modalContent} variant={this.props.variant} closeModal={this.props.closeModal} />}
         <Form onSubmit={this.handleAdd} > 
         <Form.Group controlId="formBasicEmail">
         <Form.Label>Name</Form.Label>

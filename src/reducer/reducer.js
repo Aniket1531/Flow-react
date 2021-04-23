@@ -8,7 +8,8 @@ type State = {
 
 type Action = {
   +type: string,
-  payload : Object 
+  payload : Object
+
 }
 
 
@@ -17,7 +18,7 @@ export const reducer = (state :State ={
   people:[],
   isModalOpen:false,
   modalContent: ''
-}, action: Action) => {
+}, action: Action) : Object => {
   switch (action.type) {
          case "ADD_ITEM":
         const newaddPeople = [...state.people, action.payload]
