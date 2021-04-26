@@ -1,4 +1,4 @@
-// @flow
+
 import * as React from 'react';
 import  { Component } from 'react'
 import type {Node} from 'react';
@@ -7,17 +7,20 @@ import { Button,Table } from 'react-bootstrap';
 // import {useSelector,useDispatch} from "react-redux"
 
 type props = {
-   people : Object,
+   people :Object,
   deletePerson :function
 }
+
+
+
 export class List extends Component<props> {
     
     render(): React.Node {
         return (
         <div>
-        {this.props.people.map((person)=>{
+        {this.props.people.map((person : Object)=>{
         return(
-        <div key={person.id} className="item" >
+        <div key={person.id } className="item" >
         <Table striped bordered hover>
             <tbody>
                 <tr>

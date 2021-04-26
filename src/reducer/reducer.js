@@ -1,4 +1,4 @@
-// @flow
+
 type State = {
 
   isModalOpen : boolean,

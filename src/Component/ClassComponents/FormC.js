@@ -1,4 +1,4 @@
-// @flow
+
 import * as React from 'react';
 import  { Component } from 'react'
 import type {Node} from 'react';
@@ -61,7 +61,7 @@ class FormC extends Component<props,state> {
         <Form onSubmit={this.handleAdd} > 
         <Form.Group controlId="formBasicEmail">
         <Form.Label>Name</Form.Label>
-        <Form.Control  placeholder="Add Name" value={this.state.name} onChange={(e)=>{this.setState({name : e.target.value})}} />
+        <Form.Control  placeholder="Add Name" value={this.state.name} onChange={(e :SyntheticInputEvent<HTMLInputElement>)=>{this.setState({name : e.target.value})}} />
         </Form.Group>
         <Button variant="primary" type="submit">
         Add People

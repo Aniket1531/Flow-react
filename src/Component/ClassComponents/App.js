@@ -1,5 +1,7 @@
-// @flow
-import  React,{Component} from 'react';
+
+import * as React from 'react';
+import  { Component } from 'react'
+import type {Node} from 'react';
 import FormC from "./FormC"
 import {connect} from 'react-redux'
 import List from './List'
@@ -18,13 +20,17 @@ type props = {
 type state = {
 
   isModalOpen : boolean,
-  people : Object
+  people : Object,
+  modalContent : string,
+  variant : string,
 }
 
 
 
+
+
 class App extends Component<props> {
-  render(){
+  render(): React.Node{
      return (
     
       <section>
@@ -37,7 +43,7 @@ class App extends Component<props> {
 
 }
 
-const mapStateToProps = (state) =>{
+const mapStateToProps = (state : state) =>{
 
   return {
       isModalOpen : state.isModalOpen,                
@@ -51,9 +57,9 @@ const mapStateToProps = (state) =>{
 const mapDispatchToProps = (dispatch) =>{
 
   return {
-    addPerson : (newItem)=> dispatch({type:'ADD_ITEM',payload:newItem}),
+    addPerson : (newItem : Object) : function=> dispatch({type:'ADD_ITEM',payload:newItem}),
     noValue : ()=> dispatch({type:'NO_VALUE'}),
-    deletePerson : (person)=>{dispatch({type:"REMOVE_ITEM",payload:person})},
+    deletePerson : (person : string) : function=>{dispatch({type:"REMOVE_ITEM",payload:person})},
     closeModal : ()=> dispatch({type:'CLOSED_MODAL'})
   }
 
