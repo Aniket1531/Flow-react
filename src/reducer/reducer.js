@@ -1,20 +1,22 @@
+// @flow
+import {state , Action } from "../Flow-type/type"
 
-type State = {
+// type State = {
 
-  isModalOpen : boolean,
-  people : Object,
-  modalContent : string
-}
+//   isModalOpen : boolean,
+//   people : Object,
+//   modalContent : string
+// }
 
-type Action = {
-  +type: string,
-  payload : Object
+// type Action = {
+//   +type: string,
+//   payload : Object
 
-}
+// }
 
 
 
-export const reducer = (state :State ={
+export const reducer = (state :state ={
   people:[],
   isModalOpen:false,
   modalContent: ''

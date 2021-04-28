@@ -4,23 +4,25 @@ import  { Component } from 'react'
 import type {Node} from 'react';
 import { Form,Button } from 'react-bootstrap';
 // import {useSelector,useDispatch} from "react-redux"
+import {props,state} from "../Flow-type/type"
 import Modal from "./Modal"
 
-type props = {
-     isModalOpen : boolean,
-    addPerson : function,
-    noValue : function,
-    variant : string,
-  modalContent : string,
-  closeModal : function
-    // people : Array<{}>,
-    // deletePerson : function
-}
 
-type state = {
-  name : string,
+// type props = {
+//      isModalOpen : boolean,
+//     addPerson : function,
+//     noValue : function,
+//     variant : string,
+//   modalContent : string,
+//   closeModal : function
+//     // people : Array<{}>,
+//     // deletePerson : function
+// }
 
-}
+// type state = {
+//   name : string,
+
+// }
 
 
 class FormC extends Component<props,state> {
