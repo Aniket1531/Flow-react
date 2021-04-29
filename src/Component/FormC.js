@@ -4,9 +4,8 @@ import  { Component } from 'react'
 import type {Node} from 'react';
 import { Form,Button } from 'react-bootstrap';
 // import {useSelector,useDispatch} from "react-redux"
-import {props,state} from "../Flow-type/type"
+import type {Props,State} from "../Flow-type/type"
 import Modal from "./Modal"
-
 
 // type props = {
 //      isModalOpen : boolean,
@@ -25,9 +24,9 @@ import Modal from "./Modal"
 // }
 
 
-class FormC extends Component<props,state> {
+class FormC extends Component<Props,State> {
     
-   constructor(props : props){
+   constructor(props : Props){
     super(props)
       
       this.state  = {

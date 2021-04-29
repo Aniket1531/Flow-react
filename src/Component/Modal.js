@@ -4,7 +4,7 @@ import  { Component } from 'react'
 import type {Node} from 'react';
 import { Alert } from 'react-bootstrap';
 import {connect} from "react-redux"
-import {props,state} from "../Flow-type/type"
+import type {Props,State} from "../Flow-type/type"
 
 // type props = {
 //   variant : string,
@@ -12,7 +12,11 @@ import {props,state} from "../Flow-type/type"
 //   closeModal : function
 // }
 
-export class Modal extends Component<props> {
+export class Modal extends Component<Props> {
+  constructor(props : Props)
+  {
+    super(props)
+  }
 
   componentDidMount(){
     

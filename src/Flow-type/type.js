@@ -1,21 +1,22 @@
 
-export type props = {
-    isModalOpen : boolean,
-    addPerson : function,
-    noValue : function,
-    people : Object,
-    deletePerson : function,
+export type Props = {
+    isModalOpen? : boolean,
+    addPerson? : function,
+    noValue? : function,
+    people? : Object,
+    deletePerson? : function,
     modalContent : string,
     variant : string,
     closeModal : function
 }
 
-export type state = {
+export type State = {
 
-  isModalOpen : boolean,
-  people : Object,
-  modalContent : string,
-  variant : string,
+  isModalOpen?: boolean,
+  people? : Object,
+  modalContent? : string,
+  variant? : string,
+  name? :string
 }
 
 export type Action = {
@@ -27,4 +28,4 @@ export type Action = {
 
 
 
-// export default {props , state}
+// export defau {props , state}
