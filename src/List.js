@@ -5,15 +5,16 @@ import type {Node} from 'react';
 // import {connect} from "react-redux"
 import { Button,Table } from 'react-bootstrap';
 // import {useSelector,useDispatch} from "react-redux"
+import type {Props} from  "./Flow-type/type"
 
-type props = {
-   people :Object,
-  deletePerson :function
-}
+// type props = {
+//    people :Object,
+//   deletePerson :function
+// }
 
 
 
-export class List extends Component<props> {
+export class List extends Component<Props> {
     
     render(): React.Node {
         return (

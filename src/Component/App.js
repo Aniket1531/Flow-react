@@ -5,15 +5,19 @@ import type {Node} from 'react';
 import  FormC from "./FormC"
 import {connect} from 'react-redux'
 import { bindActionCreators } from 'redux'
-import type {Props,State} from "../Flow-type/type"
+import  {Props,State} from "../Flow-type/type"
 import {AddItem,NoValue,RemoveItem,CloseModal} from "../Action/action"
 import List from '../List'
 
 
 class App extends Component<Props> {
+  
   constructor(props: Props) {
+   
     super(props)
+     
   }
+  
   render(): React.Node{
      return (
     
@@ -28,6 +32,7 @@ class App extends Component<Props> {
 }
 
 const mapStateToProps = (state : State) =>{
+  
   return {
       isModalOpen : state.isModalOpen,                
       people : state.people,

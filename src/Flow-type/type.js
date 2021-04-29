@@ -1,22 +1,22 @@
-
+// @flow
 export type Props = {
-    isModalOpen? : boolean,
-    addPerson? : function,
-    noValue? : function,
-    people? : Object,
-    deletePerson? : function,
+    isModalOpen : boolean,
+    addPerson : any,
+    noValue : any,
+    people : Object,
+    deletePerson : any,
     modalContent : string,
     variant : string,
-    closeModal : function
+    closeModal : any
 }
 
 export type State = {
 
-  isModalOpen?: boolean,
-  people? : Object,
-  modalContent? : string,
-  variant? : string,
-  name? :string
+  isModalOpen: boolean,
+  people : Object,
+  modalContent : string,
+  variant : string,
+  name :string
 }
 
 export type Action = {
@@ -28,4 +28,4 @@ export type Action = {
 
 
 
-// export defau {props , state}
+// export type {Props , State}

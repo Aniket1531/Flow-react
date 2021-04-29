@@ -58,7 +58,7 @@ class FormC extends Component<Props,State> {
     return (
       <div>
         <div>
-        {this.props.isModalOpen && <Modal modalContent={this.props. modalContent} variant={this.props.variant} closeModal={this.props.closeModal} />}
+        {this.props.isModalOpen && <Modal modalContent={this.props.modalContent} variant={this.props.variant} closeModal={this.props.closeModal} />}
         <Form onSubmit={this.handleAdd} > 
         <Form.Group controlId="formBasicEmail">
         <Form.Label>Name</Form.Label>
