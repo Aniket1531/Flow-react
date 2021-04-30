@@ -1,27 +1,29 @@
 // @flow
-export type Props = {
-    isModalOpen : boolean,
-    addPerson : any,
-    noValue : any,
-    people : Object,
-    deletePerson : any,
-    modalContent : string,
-    variant : string,
-    closeModal : any
+export type MyProps = {
+    
+    isModalOpen? : boolean,
+    addPerson? : ()=>{},
+    noValue? : ()=>{},
+    people? : Array<Object>,
+    deletePerson? : ()=>{},
+    modalContent? : string,
+    variant? : string,
+    closeModal? : ()=>{}
 }
 
-export type State = {
+export type MyState = {
 
-  isModalOpen: boolean,
-  people : Object,
-  modalContent : string,
-  variant : string,
-  name :string
+  isModalOpen?: boolean,
+  people? : Array<Object>,
+  modalContent? : string,
+  variant? : string,
+  name? :string
 }
 
-export type Action = {
+export type MyAction = {
   +type: string,
-  payload : Object
+  payload : Object,
+  
 
 }
 

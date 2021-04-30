@@ -5,14 +5,35 @@ import type {Node} from 'react';
 import  FormC from "./FormC"
 import {connect} from 'react-redux'
 import { bindActionCreators } from 'redux'
-import  {Props,State} from "../Flow-type/type"
+import type {MyProps,MyState} from "../Flow-type/type.js"
 import {AddItem,NoValue,RemoveItem,CloseModal} from "../Action/action"
 import List from '../List'
 
+// type Props = {
+    
+//     isModalOpen : boolean ,
+//     addPerson : any,
+//     noValue : any,
+//     people : Array<Object>,
+//     deletePerson : any,
+//     modalContent : string,
+//     variant : string,
+//     closeModal : any
+// }
 
-class App extends Component<Props> {
+// type State = {
+
+//   isModalOpen: boolean,
+//   people : Array<Object>,
+//   modalContent : string,
+//   variant : string,
+//   name :string
+// }
+
+class App extends Component<MyProps> {
+
   
-  constructor(props: Props) {
+  constructor(props: MyProps) {
    
     super(props)
      
@@ -31,7 +52,7 @@ class App extends Component<Props> {
 
 }
 
-const mapStateToProps = (state : State) =>{
+const mapStateToProps = (state : MyState) =>{
   
   return {
       isModalOpen : state.isModalOpen,                

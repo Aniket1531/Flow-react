@@ -1,5 +1,5 @@
 // @flow
-import  type {State , Action } from "../Flow-type/type"
+import  type {MyState , MyAction } from "../Flow-type/type.js"
 
 // type State = {
 
@@ -16,9 +16,16 @@ import  type {State , Action } from "../Flow-type/type"
 
 
 
-export const reducer = (state :State , action: Action) : Object => {
+export const reducer = ( state :MyState ={
+  people:[],
+  isModalOpen:false,
+  modalContent: '',
+  name : "",
+  variant : ""
+} , action: MyAction) : Object => {
   switch (action.type) {
          case "ADD_ITEM":
+           
         const newaddPeople = [...state.people, action.payload]
            return {
       ...state,

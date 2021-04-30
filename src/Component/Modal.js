@@ -4,19 +4,22 @@ import  { Component } from 'react'
 import type {Node} from 'react';
 import { Alert } from 'react-bootstrap';
 import {connect} from "react-redux"
-import type {Props,State} from "../Flow-type/type"
+import type {MyProps,MyState} from "../Flow-type/type.js"
 
-// type props = {
+// type Props = {
 //   variant : string,
 //   modalContent : string,
 //   closeModal : function
 // }
 
-export class Modal extends Component<Props> {
-  constructor(props : Props)
+export class Modal extends Component<MyProps> {
+  
+  constructor(props : MyProps)
   {
     super(props)
+    // this.closeModal = this.closeModal.bind(this)
   }
+
 
   componentDidMount(){
     

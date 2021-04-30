@@ -4,10 +4,10 @@ import  { Component } from 'react'
 import type {Node} from 'react';
 import { Form,Button } from 'react-bootstrap';
 // import {useSelector,useDispatch} from "react-redux"
-import type {Props,State} from "../Flow-type/type"
+import type {MyProps, MyState} from "../Flow-type/type.js"
 import Modal from "./Modal"
 
-// type props = {
+// type Props = {
 //      isModalOpen : boolean,
 //     addPerson : function,
 //     noValue : function,
@@ -18,22 +18,24 @@ import Modal from "./Modal"
 //     // deletePerson : function
 // }
 
-// type state = {
+// type State = {
 //   name : string,
 
 // }
 
 
-class FormC extends Component<Props,State> {
-    
-   constructor(props : Props){
-    super(props)
-      
-      this.state  = {
+class FormC extends Component<MyProps,MyState> {
+  
+   state : MyState  = {
         name : ""
       }
-
+   constructor(props : MyProps){
+      
+    super(props)
+    this.handleAdd = this.handleAdd.bind(this)
     }
+
+
     
     
     handleAdd  : function = (e:SyntheticEvent<EventTarget>)  =>{

@@ -5,16 +5,17 @@ import type {Node} from 'react';
 // import {connect} from "react-redux"
 import { Button,Table } from 'react-bootstrap';
 // import {useSelector,useDispatch} from "react-redux"
-import type {Props} from  "./Flow-type/type"
+import type {MyProps} from  "./Flow-type/type.js"
 
-// type props = {
+// type Props = {
 //    people :Object,
 //   deletePerson :function
 // }
 
 
 
-export class List extends Component<Props> {
+export class List extends Component<MyProps> {
+//    
     
     render(): React.Node {
         return (
@@ -26,7 +27,7 @@ export class List extends Component<Props> {
             <tbody>
                 <tr>
                     <td><h5>{person.name}</h5></td>
-                    <td><Button variant="danger" onClick={()=>this.props.deletePerson(person.id)}  >Remove</Button></td>
+                    <td><Button variant="danger" onClick={()=>this.deletePerson(person.id)}  >Remove</Button></td>
                 </tr>
             </tbody>
         </Table>
