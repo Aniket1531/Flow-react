@@ -1,5 +1,5 @@
 // @flow
-export const AddItem= (newItem : Object)=>{
+export const addPerson= (newItem : Object)=>{
        return {
            type : 'ADD_ITEM',
            palyload : newItem
@@ -7,20 +7,20 @@ export const AddItem= (newItem : Object)=>{
     
 }
 
-export const NoValue = ()=>{
+export const noValue = ()=>{
     console.log("called")
     return {
         type : 'NO_VALUE'
     }
 }
 
-export const RemoveItem = (person:number)=>{
+export const deletePerson = (person:number)=>{
     return {
         type : "REMOVE_ITEM",
         payload : person
     }
 }
-export const CloseModal = ()=>{
+export const closeModal = ()=>{
     return {
         type : 'CLOSED_MODAL'
     }

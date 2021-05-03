@@ -2,25 +2,20 @@
 import * as React from 'react';
 import  { Component } from 'react'
 import type {Node} from 'react';
-// import {connect} from "react-redux"
+import {connect} from "react-redux"
 import { Button,Table } from 'react-bootstrap';
 // import {useSelector,useDispatch} from "react-redux"
-import type {MyProps} from  "./Flow-type/type.js"
+import type {MyProps,MyState} from  "./Flow-type/type.js"
 
-// type Props = {
-//    people :Object,
-//   deletePerson :function
-// }
+
 
 
 
 export class List extends Component<MyProps> {
 
      constructor(props : MyProps){
-      
     super(props)
-    console.log("List",this.props)
-
+    
     }
     
     render(): React.Node {
@@ -44,4 +39,23 @@ export class List extends Component<MyProps> {
     )
     }
 }
-export default List
+
+
+const mapStateToProps = (state : MyState) =>{
+  
+  return {
+      isModalOpen : state.isModalOpen,                
+      people : state.people,
+      modalContent : state.modalContent,
+      variant : state.variant
+
+  }
+}
+
+const mapDispatchToProps = (dispatch) =>{
+  return{ 
+       deletePerson :  (person)=>{dispatch({type:"REMOVE_ITEM",payload:person})},
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(List)

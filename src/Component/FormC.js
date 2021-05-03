@@ -3,25 +3,9 @@ import * as React from 'react';
 import  { Component } from 'react'
 import type {Node} from 'react';
 import { Form,Button } from 'react-bootstrap';
-// import {useSelector,useDispatch} from "react-redux"
+import {connect} from 'react-redux'
 import type {MyProps, MyState} from "../Flow-type/type.js"
 import Modal from "./Modal"
-
-// type Props = {
-//      isModalOpen : boolean,
-//     addPerson : function,
-//     noValue : function,
-//     variant : string,
-//   modalContent : string,
-//   closeModal : function
-//     // people : Array<{}>,
-//     // deletePerson : function
-// }
-
-// type State = {
-//   name : string,
-
-// }
 
 
 class FormC extends Component<MyProps,MyState> {
@@ -32,8 +16,8 @@ class FormC extends Component<MyProps,MyState> {
    constructor(props : MyProps){
       
     super(props)
-    console.log("form",this.props)
     this.handleAdd = this.handleAdd.bind(this)
+    
     }
 
 
@@ -46,13 +30,12 @@ class FormC extends Component<MyProps,MyState> {
     const name = this.state.name
     if(name){
       const  newItem = {id : new Date().getTime().toString(),name}
-      this.props.Actioncreator.addPerson(newItem)
+      this.props.addPerson(newItem)
       // dispatch({type:'ADD_ITEM',payload:newItem})
       this.setState({name : ""})
     }
     else{
-      // console.log("this.props.Actioncreator",this.props.Actioncreator.noValue)
-      this.props.Actioncreator.noValue()
+      this.props.noValue()
     }
   }
   
@@ -62,7 +45,7 @@ class FormC extends Component<MyProps,MyState> {
     return (
       <div>
         <div>
-        {this.props.isModalOpen && <Modal modalContent={this.props.modalContent} variant={this.props.variant} closeModal={this.props.closeModal} />}
+        {this.props.isModalOpen && <Modal/>}
         <Form onSubmit={this.handleAdd} > 
         <Form.Group controlId="formBasicEmail">
         <Form.Label>Name</Form.Label>
@@ -79,5 +62,24 @@ class FormC extends Component<MyProps,MyState> {
   }
 }
 
+const mapStateToProps = (state : MyState) =>{
+  
+  return {
+      isModalOpen : state.isModalOpen,               
+  }
+}
 
-export default FormC
+const mapDispatchToProps = (dispatch) =>{ 
+  return{ 
+     addPerson : (newItem)=> dispatch({type:'ADD_ITEM',payload:newItem}),
+     noValue :  ()=>dispatch({type:'NO_VALUE'}),
+    
+  }
+}
+
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(FormC)
+
+
+// modalContent={this.props.modalContent} variant={this.props.variant} closeModal={this.props.Actioncreator.closeModal}

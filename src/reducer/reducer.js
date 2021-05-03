@@ -25,7 +25,7 @@ export const reducer = ( state :MyState ={
   name : "",
   variant : ""
 } , action: MyAction) : Object => {
-  console.log("reducer called")
+  
   switch (action.type) {
          case "ADD_ITEM":
            

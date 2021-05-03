@@ -6,18 +6,15 @@ import { Alert } from 'react-bootstrap';
 import {connect} from "react-redux"
 import type {MyProps,MyState} from "../Flow-type/type.js"
 
-// type Props = {
-//   variant : string,
-//   modalContent : string,
-//   closeModal : function
-// }
 
 export class Modal extends Component<MyProps> {
-  
+  static defaultProps = {
+    closeModal: () => {},
+  };
+
   constructor(props : MyProps)
   {
     super(props)
-    console.log("modal",props)
   }
 
 
@@ -42,6 +39,19 @@ export class Modal extends Component<MyProps> {
   }
 }
 
+const mapStateToProps = (state : MyState) =>{
+  
+  return {
+      modalContent : state.modalContent,
+      variant : state.variant
+  }
+}
 
+const mapDispatchToProps = (dispatch) =>{
+   
+  return{ 
+      closeModal : ()=> dispatch({type:'CLOSED_MODAL'})
+  }
+}
 
-export default Modal
+export default connect(mapStateToProps,mapDispatchToProps)(Modal)
