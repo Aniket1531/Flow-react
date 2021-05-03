@@ -32,6 +32,7 @@ class FormC extends Component<MyProps,MyState> {
    constructor(props : MyProps){
       
     super(props)
+    console.log("form",props)
     this.handleAdd = this.handleAdd.bind(this)
     }
 

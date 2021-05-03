@@ -6,7 +6,7 @@ import  FormC from "./FormC"
 import {connect} from 'react-redux'
 import { bindActionCreators } from 'redux'
 import type {MyProps,MyState} from "../Flow-type/type.js"
-import {AddItem,NoValue,RemoveItem,CloseModal} from "../Action/action"
+import * as Action from "../Action/action"
 import List from '../List'
 
 // type Props = {
@@ -20,7 +20,7 @@ import List from '../List'
 //     variant : string,
 //     closeModal : any
 // }
-
+ //{AddItem,NoValue,RemoveItem,CloseModal}
 // type State = {
 
 //   isModalOpen: boolean,
@@ -36,6 +36,9 @@ class App extends Component<MyProps> {
   constructor(props: MyProps) {
    
     super(props)
+    // const {dispatch} =props
+    // this.bondActions = this.bindActionCreators(Action,dispatch)
+
      
   }
   
@@ -66,10 +69,10 @@ const mapStateToProps = (state : MyState) =>{
 const mapDispatchToProps = (dispatch) =>{
 
   return {
-    addPerson : bindActionCreators(AddItem,dispatch),
-    noValue : bindActionCreators(NoValue,dispatch),
-    deletePerson : bindActionCreators(RemoveItem,dispatch),
-    closeModal : bindActionCreators(CloseModal,dispatch)
+    addPerson :   (newItem)=> dispatch({type:'ADD_ITEM',payload:newItem}),
+    noValue :  ()=>dispatch({type:'NO_VALUE'}),
+    deletePerson :  (person)=>{dispatch({type:"REMOVE_ITEM",payload:person})},
+    closeModal : ()=> dispatch({type:'CLOSED_MODAL'})
   }
 
 }

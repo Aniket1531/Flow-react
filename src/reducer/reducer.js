@@ -48,6 +48,7 @@ export const reducer = ( state :MyState ={
       isModalOpen: false
     }
     case "REMOVE_ITEM" :
+      console.log(action.payload)
       const newPeople = state.people.filter(people => people.id !== action.payload)
     return {
       ...state,

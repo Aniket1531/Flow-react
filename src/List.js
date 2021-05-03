@@ -15,7 +15,13 @@ import type {MyProps} from  "./Flow-type/type.js"
 
 
 export class List extends Component<MyProps> {
-//    
+
+     constructor(props : MyProps){
+      
+    super(props)
+    console.log("List",props)
+
+    }
     
     render(): React.Node {
         return (
@@ -27,7 +33,7 @@ export class List extends Component<MyProps> {
             <tbody>
                 <tr>
                     <td><h5>{person.name}</h5></td>
-                    <td><Button variant="danger" onClick={()=>this.deletePerson(person.id)}  >Remove</Button></td>
+                    <td><Button variant="danger" onClick={()=>this.props.deletePerson(person.id)}  >Remove</Button></td>
                 </tr>
             </tbody>
         </Table>
