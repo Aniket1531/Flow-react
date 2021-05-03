@@ -19,7 +19,7 @@ export class List extends Component<MyProps> {
      constructor(props : MyProps){
       
     super(props)
-    console.log("List",props)
+    console.log("List",this.props)
 
     }
     

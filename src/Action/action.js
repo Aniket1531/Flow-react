@@ -8,6 +8,7 @@ export const AddItem= (newItem : Object)=>{
 }
 
 export const NoValue = ()=>{
+    console.log("called")
     return {
         type : 'NO_VALUE'
     }

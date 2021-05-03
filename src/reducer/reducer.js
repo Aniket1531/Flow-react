@@ -1,6 +1,8 @@
 // @flow
 import  type {MyState , MyAction } from "../Flow-type/type.js"
 
+
+
 // type State = {
 
 //   isModalOpen : boolean,
@@ -23,6 +25,7 @@ export const reducer = ( state :MyState ={
   name : "",
   variant : ""
 } , action: MyAction) : Object => {
+  console.log("reducer called")
   switch (action.type) {
          case "ADD_ITEM":
            

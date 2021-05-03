@@ -17,14 +17,14 @@ export class Modal extends Component<MyProps> {
   constructor(props : MyProps)
   {
     super(props)
-    // this.closeModal = this.closeModal.bind(this)
+    console.log("modal",props)
   }
 
 
   componentDidMount(){
     
   setTimeout(()=>{
-    this.props.closeModal() 
+    this.props.closeModal()
   }
   ,3000)
 

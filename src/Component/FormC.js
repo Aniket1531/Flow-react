@@ -32,7 +32,7 @@ class FormC extends Component<MyProps,MyState> {
    constructor(props : MyProps){
       
     super(props)
-    console.log("form",props)
+    console.log("form",this.props)
     this.handleAdd = this.handleAdd.bind(this)
     }
 
@@ -46,12 +46,13 @@ class FormC extends Component<MyProps,MyState> {
     const name = this.state.name
     if(name){
       const  newItem = {id : new Date().getTime().toString(),name}
-      this.props.addPerson(newItem)
+      this.props.Actioncreator.addPerson(newItem)
       // dispatch({type:'ADD_ITEM',payload:newItem})
       this.setState({name : ""})
     }
     else{
-      this.props.noValue()
+      // console.log("this.props.Actioncreator",this.props.Actioncreator.noValue)
+      this.props.Actioncreator.noValue()
     }
   }
   
