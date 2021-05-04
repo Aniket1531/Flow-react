@@ -1,13 +1,12 @@
 // @flow
 import * as React from 'react';
 import  { Component } from 'react'
-
 import { Alert } from 'react-bootstrap';
 import {connect} from "react-redux"
-import type {MyProps,MyState} from "../Flow-type/type.js"
+import type {ModalProps} from "../Flow-type/type.js"
 
 
-export class Modal extends Component<MyProps> {
+export class Modal extends Component<ModalProps> {
 
   componentDidUpdate(){
     
@@ -22,12 +21,10 @@ export class Modal extends Component<MyProps> {
 
   }
 
-   
-
 
   render(): React.Node {
     return (
-        <div >
+        <div className={this.props.isModalOpen?'show':"hide"} >
             <Alert variant={this.props.variant}>
                 <center>
                     <h6>{this.props.modalContent} </h6>
@@ -39,11 +36,12 @@ export class Modal extends Component<MyProps> {
   }
 }
 
-const mapStateToProps = (state : MyState) =>{
+const mapStateToProps = (state) =>{
   
   return {
       modalContent : state.modalContent,
       variant : state.variant,
+      isModalOpen : state.isModalOpen
       
   }
 }

@@ -3,13 +3,13 @@ import * as React from 'react';
 import  { Component } from 'react'
 import { Form,Button } from 'react-bootstrap';
 import {connect} from 'react-redux'
-import type {MyProps, MyState} from "../Flow-type/type.js"
+import type {FormProps,FormState} from "../Flow-type/type.js"
 import Modal from "./Modal"
 
 
-class FormC extends Component<MyProps,MyState> {
+class FormC extends Component<FormProps,FormState> {
   
-   state : MyState  = {
+   state : FormState  = {
         name : ""
       }
     

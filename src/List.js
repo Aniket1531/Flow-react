@@ -3,11 +3,11 @@ import * as React from 'react';
 import  { Component } from 'react'
 import {connect} from "react-redux"
 import { Button,Table } from 'react-bootstrap';
-import type {MyProps,MyState} from  "./Flow-type/type.js"
+import type {ListProps} from  "./Flow-type/type.js"
 
 
 
-export class List extends Component<MyProps> {
+export class List extends Component<ListProps> {
  
     render(): React.Node {
         
@@ -33,14 +33,10 @@ export class List extends Component<MyProps> {
 }
 
 
-const mapStateToProps = (state : MyState) =>{
+const mapStateToProps = (state ) =>{
   
-  return {
-      isModalOpen : state.isModalOpen,                
+  return {              
       people : state.people,
-      modalContent : state.modalContent,
-      variant : state.variant
-
   }
 }
 
