@@ -2,19 +2,19 @@
 export type MyProps = {
     
     isModalOpen? : boolean,
-    addPerson? : ()=>{},
+    addPerson? : (person)=>{},
     noValue? : ()=>{},
-    people? : Array<Object>,
-    deletePerson? : ()=>{},
+    people? : Array<person>,
+    deletePerson? : (id : string)=>{},
     modalContent? : string,
     variant? : string,
-    closeModal? : ()=>{}
+    closeModal? : ()=>{}      
 }
 
 export type MyState = {
 
   isModalOpen?: boolean,
-  people? : Array<Object>,
+  people? : Array<person>,
   modalContent? : string,
   variant? : string,
   name? :string
@@ -27,6 +27,13 @@ export type MyAction = {
 
 }
 
+// export type person = addItem
+
+export type person = {
+    id: string,
+    name: string,
+    
+}
 
 
 

@@ -1,5 +1,8 @@
 // @flow
-export const addPerson= (newItem : Object)=>{
+import  type {person } from "../Flow-type/type.js"
+
+
+export const addPerson= (newItem : person)=>{
        return {
            type : 'ADD_ITEM',
            palyload : newItem
@@ -14,10 +17,10 @@ export const noValue = ()=>{
     }
 }
 
-export const deletePerson = (person:number)=>{
+export const deletePerson = (id : string)=>{
     return {
         type : "REMOVE_ITEM",
-        payload : person
+        payload : id
     }
 }
 export const closeModal = ()=>{

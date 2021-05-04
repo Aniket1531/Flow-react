@@ -8,9 +8,7 @@ import type {MyProps,MyState} from "../Flow-type/type.js"
 
 
 export class Modal extends Component<MyProps> {
-  static defaultProps = {
-    closeModal: () => {},
-  };
+  
 
   constructor(props : MyProps)
   {
@@ -21,7 +19,10 @@ export class Modal extends Component<MyProps> {
   componentDidMount(){
     
   setTimeout(()=>{
-    this.props.closeModal()
+    if(this.props.closeModal)
+    {
+      this.props.closeModal()
+    }
   }
   ,3000)
 

@@ -3,21 +3,6 @@ import  type {MyState , MyAction } from "../Flow-type/type.js"
 
 
 
-// type State = {
-
-//   isModalOpen : boolean,
-//   people : Object,
-//   modalContent : string
-// }
-
-// type Action = {
-//   +type: string,
-//   payload : Object
-
-// }
-
-
-
 export const reducer = ( state :MyState ={
   people:[],
   isModalOpen:false,
@@ -28,7 +13,7 @@ export const reducer = ( state :MyState ={
   
   switch (action.type) {
          case "ADD_ITEM":
-           
+          if(state.people){ 
         const newaddPeople = [...state.people, action.payload]
            return {
       ...state,
@@ -36,7 +21,7 @@ export const reducer = ( state :MyState ={
       isModalOpen: true,
       modalContent: 'item added',
       variant :'success'
-
+}
     }
     case "NO_VALUE":
       return {
@@ -51,7 +36,7 @@ export const reducer = ( state :MyState ={
       isModalOpen: false
     }
     case "REMOVE_ITEM" :
-      console.log(action.payload)
+      if(state.people){
       const newPeople = state.people.filter(people => people.id !== action.payload)
     return {
       ...state,
@@ -59,6 +44,7 @@ export const reducer = ( state :MyState ={
       isModalOpen: true,
       modalContent: 'Item Removed',
       variant :'danger'
+      }
     }
    default:
      return state 
