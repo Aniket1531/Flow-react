@@ -1,7 +1,6 @@
 // @flow
 import * as React from 'react';
 import  { Component } from 'react'
-import type {Node} from 'react';
 import {connect} from "react-redux"
 import { Button,Table } from 'react-bootstrap';
 import type {MyProps,MyState} from  "./Flow-type/type.js"
@@ -9,17 +8,11 @@ import type {MyProps,MyState} from  "./Flow-type/type.js"
 
 
 export class List extends Component<MyProps> {
-
-
-     constructor(props : MyProps){
-    super(props)
-    
-    }
-    
+ 
     render(): React.Node {
         
         return (
-        <div>
+        <div style={{margin: "15px"}}>
         {this.props.people ? this.props.people.map((person)=>{
         return(
         <div key={person.id } className="item" >
@@ -27,12 +20,12 @@ export class List extends Component<MyProps> {
             <tbody>
                 <tr>
                     <td><h5>{person.name}</h5></td>
-                    <td><Button variant="danger" onClick={()=>{if(this.props.deletePerson){this.props.deletePerson(person.id)}}}  >Remove</Button></td>
+                    <td className="btn_side"><Button variant="danger" onClick={()=>{if(this.props.deletePerson){this.props.deletePerson(person.id)}}}  >Remove</Button></td>
                 </tr>
             </tbody>
         </Table>
         </div>
-    )
+        )
     }):<p>No Person</p>}
         </div>
     )

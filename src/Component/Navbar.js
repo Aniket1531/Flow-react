@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 import  { Component } from 'react'
-import type {Node} from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 
 

@@ -1,12 +1,10 @@
 // @flow
 import * as React from 'react';
 import  { Component } from 'react'
-import type {Node} from 'react';
 import { Form,Button } from 'react-bootstrap';
 import {connect} from 'react-redux'
 import type {MyProps, MyState} from "../Flow-type/type.js"
 import Modal from "./Modal"
-
 
 
 class FormC extends Component<MyProps,MyState> {
@@ -14,11 +12,7 @@ class FormC extends Component<MyProps,MyState> {
    state : MyState  = {
         name : ""
       }
-   constructor(props : MyProps){
-      
-    super(props)
-    this.handleAdd = this.handleAdd.bind(this)
-    }
+    
   
     handleAdd  : function = (e:SyntheticEvent<EventTarget>)  =>{
 
@@ -48,7 +42,7 @@ class FormC extends Component<MyProps,MyState> {
     return (
       <div>
         <div>
-        {this.props.isModalOpen && <Modal/>}
+        <Modal/>
         <Form onSubmit={this.handleAdd} > 
         <Form.Group controlId="formBasicEmail">
         <Form.Label>Name</Form.Label>
@@ -65,24 +59,17 @@ class FormC extends Component<MyProps,MyState> {
   }
 }
 
-const mapStateToProps = (state : MyState) =>{
-  
-  return {
-      isModalOpen : state.isModalOpen,               
-  }
-}
 
 const mapDispatchToProps = (dispatch) =>{ 
   return{ 
      addPerson : (newItem)=> dispatch({type:'ADD_ITEM',payload:newItem}),
      noValue :  ()=>dispatch({type:'NO_VALUE'}),
-    
   }
 }
 
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(FormC)
+export default connect(null,mapDispatchToProps)(FormC)
 
 
 // modalContent={this.props.modalContent} variant={this.props.variant} closeModal={this.props.Actioncreator.closeModal}

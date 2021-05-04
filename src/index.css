@@ -11,3 +11,8 @@ body {
 .jumbotrom {
     background-position : center;
 }
+
+.btn_side {
+   padding: 5px;
+  text-align:right;
+}

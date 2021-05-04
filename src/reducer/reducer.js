@@ -1,14 +1,12 @@
 // @flow
 import  type {MyState , MyAction } from "../Flow-type/type.js"
 
-
-
 export const reducer = ( state :MyState ={
   people:[],
-  isModalOpen:false,
-  modalContent: '',
+  // isModalOpen:false,
+  modalContent:  'Enter Name',
   name : "",
-  variant : ""
+  variant :   "primary"
 } , action: MyAction) : Object => {
   
   switch (action.type) {
@@ -18,22 +16,28 @@ export const reducer = ( state :MyState ={
            return {
       ...state,
       people: newaddPeople,
-      isModalOpen: true,
+      // isModalOpen: true,
       modalContent: 'item added',
       variant :'success'
-}
+         }
+         
     }
+    else
+         break
     case "NO_VALUE":
       return {
       ...state,
-      isModalOpen: true,
+      // isModalOpen: true,
       modalContent: 'please enter value',
       variant :'warning'
     }
     case "CLOSED_MODAL":
+     
       return {
       ...state,
-      isModalOpen: false
+      // isModalOpen:false,
+      modalContent: 'Enter Name',
+      variant : "primary"
     }
     case "REMOVE_ITEM" :
       if(state.people){
@@ -41,11 +45,13 @@ export const reducer = ( state :MyState ={
     return {
       ...state,
       people: newPeople,
-      isModalOpen: true,
+      // isModalOpen: true,
       modalContent: 'Item Removed',
       variant :'danger'
       }
     }
+    else
+        break
    default:
      return state 
   }
