@@ -26,10 +26,9 @@ export class Modal extends Component<ModalProps> {
 
 
   render(): React.Node {
-    console.log(this.props)
     return (
-        <div className={this.props.isModalOpen?'show':'hide'} >
-            <Alert variant={this.props.variant}>
+        <div  >
+            <Alert variant={this.props.variant} className={this.props.isModalOpen?'show':'hide'}>
                 <center>
                     <h6>{this.props.modalContent} </h6>
             </center>

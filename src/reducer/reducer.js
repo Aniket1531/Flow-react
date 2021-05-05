@@ -55,8 +55,8 @@ export const formReducer = ( state:ReducerState ={
 
 export const modalReducer = ( state:ReducerState ={
       isModalOpen: false,
-      modalContent: '',
-      variant :'',
+      modalContent: 'Showing Nothing',
+      variant :'muted',
 } , action: MyAction) : Object => {
   // console.log("modalReducer",state)
   switch (action.type) {     
@@ -85,7 +85,7 @@ export const modalReducer = ( state:ReducerState ={
       return {
       ...state,
       isModalOpen: false,
-     modalContent: '',
+     modalContent: 'Showing Nothing',
       variant :'',
     } 
      
