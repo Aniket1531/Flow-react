@@ -18,6 +18,14 @@ export type ModalProps = {
   closeModal? : ()=>{},
   modalContent? : string,
   variant? : string,
+  isModalOpen? : boolean,
+}
+
+
+export type ListProps = {
+    people? : Array<person>,
+    deletePerson? : (id : string)=>{},
+
 }
 
 export type ReducerState = {
@@ -27,13 +35,12 @@ export type ReducerState = {
      name? :string
      
 }
-export type ListProps = {
-    people? : Array<person>,
-    deletePerson? : (id : string)=>{},
+
+export type MyAction = {
+  +type: string,
+  payload : person
 
 }
-
-
 
 
 
@@ -58,11 +65,7 @@ export type ListProps = {
 //   name? :string
 // }
 
-export type MyAction = {
-  +type: string,
-  payload : Object,
 
-}
 
 
 

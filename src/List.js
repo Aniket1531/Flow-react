@@ -4,7 +4,7 @@ import  { Component } from 'react'
 import {connect} from "react-redux"
 import { Button,Table } from 'react-bootstrap';
 import type {ListProps} from  "./Flow-type/type.js"
-
+import {deletePerson} from "./Action/action.js"
 
 
 export class List extends Component<ListProps> {
@@ -42,7 +42,7 @@ const mapStateToProps = (state ) =>{
 
 const mapDispatchToProps = (dispatch) =>{
   return{ 
-       deletePerson :  (person)=>{dispatch({type:"REMOVE_ITEM",payload:person})},
+       deletePerson :  (person)=>{dispatch(deletePerson(person))},
   }
 }
 

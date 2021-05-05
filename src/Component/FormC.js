@@ -5,6 +5,7 @@ import { Form,Button } from 'react-bootstrap';
 import {connect} from 'react-redux'
 import type {FormProps,FormState} from "../Flow-type/type.js"
 import Modal from "./Modal"
+import {addPerson,noValue} from "../Action/action"
 
 
 class FormC extends Component<FormProps,FormState> {
@@ -62,8 +63,8 @@ class FormC extends Component<FormProps,FormState> {
 
 const mapDispatchToProps = (dispatch) =>{ 
   return{ 
-     addPerson : (newItem)=> dispatch({type:'ADD_ITEM',payload:newItem}),
-     noValue :  ()=>dispatch({type:'NO_VALUE'}),
+     addPerson : (newItem)=> dispatch(addPerson(newItem)),
+     noValue :  ()=>dispatch(noValue()),
   }
 }
 

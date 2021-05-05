@@ -10,7 +10,7 @@ export const reducer = ( state:ReducerState ={
 } , action: MyAction) : Object => {
   
   switch (action.type) {
-         case "ADD_ITEM":
+         case "ADD_ITEM": 
           if(state.people){ 
         const newaddPeople = [...state.people, action.payload]
            return {

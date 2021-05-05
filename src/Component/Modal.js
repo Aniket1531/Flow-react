@@ -4,6 +4,7 @@ import  { Component } from 'react'
 import { Alert } from 'react-bootstrap';
 import {connect} from "react-redux"
 import type {ModalProps} from "../Flow-type/type.js"
+import {closeModal} from "../Action/action"
 
 
 export class Modal extends Component<ModalProps> {
@@ -49,7 +50,7 @@ const mapStateToProps = (state) =>{
 const mapDispatchToProps = (dispatch) =>{
    
   return{ 
-      closeModal : ()=> dispatch({type:'CLOSED_MODAL'})
+      closeModal : ()=> dispatch(closeModal())
   }
 }
 
