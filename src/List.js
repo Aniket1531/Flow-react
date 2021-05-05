@@ -2,6 +2,7 @@
 import * as React from 'react';
 import  { Component } from 'react'
 import {connect} from "react-redux"
+import { bindActionCreators } from 'redux'
 import { Button,Table } from 'react-bootstrap';
 import type {ListProps} from  "./Flow-type/type.js"
 import {deletePerson} from "./Action/action.js"
@@ -34,16 +35,17 @@ export class List extends Component<ListProps> {
 
 
 const mapStateToProps = (state ) =>{
-  
+   
   return {              
       people : state.people,
   }
 }
 
 const mapDispatchToProps = (dispatch) =>{
-  return{ 
-       deletePerson :  (person)=>{dispatch(deletePerson(person))},
-  }
+  return bindActionCreators({deletePerson},dispatch)
+//   { 
+//        deletePerson :  (person)=>{dispatch(deletePerson(person))},
+//   }
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(List)

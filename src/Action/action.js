@@ -11,7 +11,7 @@ export const addPerson= (newItem : person)=>{
 }
 
 export const noValue = ()=>{
-    console.log("called")
+
     return {
         type : 'NO_VALUE'
     }

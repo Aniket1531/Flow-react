@@ -3,6 +3,7 @@ import * as React from 'react';
 import  { Component } from 'react'
 import { Alert } from 'react-bootstrap';
 import {connect} from "react-redux"
+import { bindActionCreators } from 'redux'
 import type {ModalProps} from "../Flow-type/type.js"
 import {closeModal} from "../Action/action"
 
@@ -49,9 +50,9 @@ const mapStateToProps = (state) =>{
 
 const mapDispatchToProps = (dispatch) =>{
    
-  return{ 
-      closeModal : ()=> dispatch(closeModal())
-  }
+  return bindActionCreators({closeModal},dispatch)
+  //     closeModal : ()=> dispatch(closeModal())
+  // }
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Modal)

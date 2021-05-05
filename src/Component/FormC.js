@@ -3,6 +3,7 @@ import * as React from 'react';
 import  { Component } from 'react'
 import { Form,Button } from 'react-bootstrap';
 import {connect} from 'react-redux'
+import { bindActionCreators } from 'redux'
 import type {FormProps,FormState} from "../Flow-type/type.js"
 import Modal from "./Modal"
 import {addPerson,noValue} from "../Action/action"
@@ -46,7 +47,7 @@ class FormC extends Component<FormProps,FormState> {
         <Modal/>
         <Form onSubmit={this.handleAdd} > 
         <Form.Group controlId="formBasicEmail">
-        <Form.Label>Name</Form.Label>
+        {/* <Form.Label>Name</Form.Label> */}
         <Form.Control  placeholder="Add Name" value={this.state.name} onChange={(e :SyntheticInputEvent<HTMLInputElement>)=>{this.setState({name : e.target.value})}} />
         </Form.Group>
         <Button variant="primary" type="submit">
@@ -62,10 +63,10 @@ class FormC extends Component<FormProps,FormState> {
 
 
 const mapDispatchToProps = (dispatch) =>{ 
-  return{ 
-     addPerson : (newItem)=> dispatch(addPerson(newItem)),
-     noValue :  ()=>dispatch(noValue()),
-  }
+  return bindActionCreators({addPerson,noValue},dispatch)
+    //  addPerson : (newItem)=> dispatch(addPerson(newItem)),
+    //  noValue :  ()=>dispatch(noValue()),
+  
 }
 
 
