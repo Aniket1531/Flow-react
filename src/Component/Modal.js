@@ -10,10 +10,10 @@ import {closeModal} from "../Action/action"
 
 export class Modal extends Component<ModalProps> {
 
-  componentDidUpdate(){
+  componentDidMount(){
     
   setTimeout(()=>{
-    
+    console.log("called0110")
     if(this.props.closeModal)
     {
       this.props.closeModal()
@@ -25,8 +25,9 @@ export class Modal extends Component<ModalProps> {
 
 
   render(): React.Node {
+    console.log(this.props.isModalOpen)
     return (
-        <div className={this.props.isModalOpen?'show':"hide"} >
+        <div className={this.props.isModalOpen?'show':'hide'} >
             <Alert variant={this.props.variant}>
                 <center>
                     <h6>{this.props.modalContent} </h6>
@@ -41,9 +42,9 @@ export class Modal extends Component<ModalProps> {
 const mapStateToProps = (state) =>{
   
   return {
-      modalContent : state.modalContent,
-      variant : state.variant,
-      isModalOpen : state.isModalOpen
+      modalContent : state.fReducer.modalContent,
+      variant : state.fReducer.variant,
+      isModalOpen : state.mReducer.isModalOpen
       
   }
 }

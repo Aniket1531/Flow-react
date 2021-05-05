@@ -27,7 +27,7 @@ export class List extends Component<ListProps> {
         </Table>
         </div>
         )
-    }):<p>No Person</p>}
+    }):<center><h6>No Person</h6></center>}
         </div>
     )
     }
@@ -35,9 +35,9 @@ export class List extends Component<ListProps> {
 
 
 const mapStateToProps = (state ) =>{
-   
+
   return {              
-      people : state.people,
+      people : state.fReducer.people,
   }
 }
 

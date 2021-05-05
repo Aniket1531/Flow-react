@@ -17,10 +17,10 @@ body {
   text-align:right;
 }
 
-/* .show
+.show
 {
   visibility: visible;
-} */
+}
 
 .hide{
    visibility: hidden;
