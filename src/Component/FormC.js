@@ -24,21 +24,23 @@ class FormC extends Component<FormProps,FormState> {
     const name = this.state.name
     if(name){
       const  newItem = {id : new Date().getTime().toString(),name}
-      if(this.props.addPerson)
+      if(this.props.showAdd)
+      {if(this.props.addPerson )
       {
         this.props.addPerson(newItem)
-        this.props.showAdd()
       }
-      
+      this.props.showAdd()
+      }
       this.setState({name : ""})
     }
     else{
-      if(this.props.noValue)
+      if(this.props.showNothing)
+      {if(this.props.noValue)
       {
         this.props.noValue()
-        this.props.showNothing()
       }
-      
+      this.props.showNothing()
+      }
     }
   }
   

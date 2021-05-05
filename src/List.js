@@ -21,7 +21,7 @@ export class List extends Component<ListProps> {
             <tbody>
                 <tr>
                     <td><h5>{person.name}</h5></td>
-                    <td className="btn_side"><Button variant="danger" onClick={()=>{if(this.props.deletePerson){this.props.deletePerson(person.id)}this.props.showDelete()}}  >Remove</Button></td>
+                    <td className="btn_side"><Button variant="danger" onClick={()=>{if(this.props.showDelete){if(this.props.deletePerson){this.props.deletePerson(person.id)}this.props.showDelete()}}}  >Remove</Button></td>
                 </tr>
             </tbody>
         </Table>

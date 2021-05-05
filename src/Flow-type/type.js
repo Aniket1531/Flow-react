@@ -8,6 +8,8 @@ export type person = {
 export type FormProps ={
    addPerson? : (person)=>{},
    noValue? : ()=>{},
+   showAdd? : ()=>{},
+   showNothing? :()=>{}
 
 }
 export type FormState ={
@@ -26,6 +28,7 @@ export type ModalProps = {
 export type ListProps = {
     people? : Array<person>,
     deletePerson? : (id : string)=>{},
+    showDelete? : ()=>{}
 
 }
 
