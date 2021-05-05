@@ -6,13 +6,14 @@ import {connect} from 'react-redux'
 import { bindActionCreators } from 'redux'
 import type {FormProps,FormState} from "../Flow-type/type.js"
 import Modal from "./Modal"
-import {addPerson,noValue} from "../Action/action"
+import {addPerson,noValue,showAdd,showNothing} from "../Action/action"
 
 
 class FormC extends Component<FormProps,FormState> {
   
    state : FormState  = {
-        name : ""
+        name : "",
+        modalOpen : false
       }
     
   
@@ -26,21 +27,24 @@ class FormC extends Component<FormProps,FormState> {
       if(this.props.addPerson)
       {
         this.props.addPerson(newItem)
+        this.props.showAdd()
       }
-      // dispatch({type:'ADD_ITEM',payload:newItem})
+      
       this.setState({name : ""})
     }
     else{
       if(this.props.noValue)
       {
         this.props.noValue()
+        this.props.showNothing()
       }
+      
     }
   }
   
 
   render(): React.Node  {
-
+  
     return (
       <div>
         <div>
@@ -51,10 +55,9 @@ class FormC extends Component<FormProps,FormState> {
         <Form.Control  placeholder="Add Name" value={this.state.name} onChange={(e :SyntheticInputEvent<HTMLInputElement>)=>{this.setState({name : e.target.value})}} />
         </Form.Group>
         <Button variant="primary" type="submit">
-        Add People
+         Add People
         </Button>
         </Form>
-        
         </div>
       </div>
     )
@@ -62,8 +65,9 @@ class FormC extends Component<FormProps,FormState> {
 }
 
 
+
 const mapDispatchToProps = (dispatch) =>{ 
-  return bindActionCreators({addPerson,noValue},dispatch)
+  return bindActionCreators({addPerson,noValue,showAdd,showNothing},dispatch)
     //  addPerson : (newItem)=> dispatch(addPerson(newItem)),
     //  noValue :  ()=>dispatch(noValue()),
   

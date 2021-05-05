@@ -11,7 +11,8 @@ export type FormProps ={
 
 }
 export type FormState ={
-  name? :string
+  name? :string,
+  modalOpen?:boolean
 }
 
 export type ModalProps = {

@@ -28,3 +28,21 @@ export const closeModal = ()=>{
         type : 'CLOSED_MODAL'
     }
 }
+
+export const showAdd = ()=>{
+    return{
+        type : 'SHOW_ADD'
+    }
+}
+
+export const showNothing = ()=>{
+    return{
+        type : 'SHOW_NOTHING'
+    }
+}
+
+export const showDelete = ()=>{
+    return{
+        type : 'SHOW_DELETE'
+    }
+}

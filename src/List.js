@@ -5,11 +5,11 @@ import {connect} from "react-redux"
 import { bindActionCreators } from 'redux'
 import { Button,Table } from 'react-bootstrap';
 import type {ListProps} from  "./Flow-type/type.js"
-import {deletePerson} from "./Action/action.js"
+import {deletePerson,showDelete} from "./Action/action.js"
 
 
 export class List extends Component<ListProps> {
- 
+   
     render(): React.Node {
         
         return (
@@ -21,7 +21,7 @@ export class List extends Component<ListProps> {
             <tbody>
                 <tr>
                     <td><h5>{person.name}</h5></td>
-                    <td className="btn_side"><Button variant="danger" onClick={()=>{if(this.props.deletePerson){this.props.deletePerson(person.id)}}}  >Remove</Button></td>
+                    <td className="btn_side"><Button variant="danger" onClick={()=>{if(this.props.deletePerson){this.props.deletePerson(person.id)}this.props.showDelete()}}  >Remove</Button></td>
                 </tr>
             </tbody>
         </Table>
@@ -42,7 +42,7 @@ const mapStateToProps = (state ) =>{
 }
 
 const mapDispatchToProps = (dispatch) =>{
-  return bindActionCreators({deletePerson},dispatch)
+  return bindActionCreators({deletePerson,showDelete},dispatch)
 //   { 
 //        deletePerson :  (person)=>{dispatch(deletePerson(person))},
 //   }
