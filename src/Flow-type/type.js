@@ -9,7 +9,8 @@ export type FormProps ={
    addPerson? : (person)=>{},
    noValue? : ()=>{},
    showAdd? : ()=>{},
-   showNothing? :()=>{}
+   showNothing? :()=>{},
+   name : string
 
 }
 export type FormState ={
