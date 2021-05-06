@@ -11,17 +11,17 @@ import {addPerson,noValue,showAdd,showNothing} from "../Action/action"
 
 class FormC extends Component<FormProps,FormState> {
   
-   state : FormState  = {
-        name : "",
-        modalOpen : false
-      }
+  //  state : FormState  = {
+  //       name : "",
+        
+  //     }
     
   
     handleAdd  : function = (e:SyntheticEvent<EventTarget>)  =>{
 
     e.preventDefault()
     
-    const name = this.state.name
+    const name = this.props.name
     if(name){
       const  newItem = {id : new Date().getTime().toString(),name}
       if(this.props.showAdd)
@@ -46,7 +46,7 @@ class FormC extends Component<FormProps,FormState> {
   
 
   render(): React.Node  {
-  
+  console.log("helo",this)
     return (
       <div>
         <div>
@@ -54,7 +54,7 @@ class FormC extends Component<FormProps,FormState> {
         <Form onSubmit={this.handleAdd} > 
         <Form.Group controlId="formBasicEmail">
         {/* <Form.Label>Name</Form.Label> */}
-        <Form.Control  placeholder="Add Name" value={this.state.name} onChange={(e :SyntheticInputEvent<HTMLInputElement>)=>{this.setState({name : e.target.value})}} />
+        <Form.Control  placeholder="Add Name" value={this.props.name} onChange={(e :SyntheticInputEvent<HTMLInputElement>)=>{this.setState({name : e.target.value})}} />
         </Form.Group>
         <Button variant="primary" type="submit">
          Add People
@@ -66,6 +66,12 @@ class FormC extends Component<FormProps,FormState> {
   }
 }
 
+const mapStateToProps = (state ) =>{
+    console.log(state)
+  return {              
+      name : state.fReducer.name,
+  }
+}
 
 
 const mapDispatchToProps = (dispatch) =>{ 
@@ -77,7 +83,9 @@ const mapDispatchToProps = (dispatch) =>{
 
 
 
-export default connect(null,mapDispatchToProps)(FormC)
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(FormC)
 
 
 // modalContent={this.props.modalContent} variant={this.props.variant} closeModal={this.props.Actioncreator.closeModal}

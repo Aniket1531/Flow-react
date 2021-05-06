@@ -1,13 +1,21 @@
 // @flow
 import  type {ReducerState, MyAction } from "../Flow-type/type.js"
 
+export const formReducer = (state:ReducerState ={
+  name : ""
+},action : MyAction) : Object =>{
+     switch (action.type) {
+    case "NO_VALUE":
+      return {
+      ...state,
+    }
+    default:
+     return state 
+     }
+}
 
-export const formReducer = ( state:ReducerState ={
+export const listReducer = (state:ReducerState ={
   people:[],
-  isModalOpen:false,
-  modalContent:  '',
-  name : "",
-  variant :   ""
 } , action: MyAction) : Object => {
   switch (action.type) {
          case "ADD_ITEM": 
@@ -16,32 +24,20 @@ export const formReducer = ( state:ReducerState ={
            return {
       ...state,
       people: newaddPeople,
-      // isModalOpen: true,
-      // modalContent: 'item added',
-      // variant :'success',
-
          }
     }
     else
          break
-    case "NO_VALUE":
-      return {
-      ...state,
-      // isModalOpen: true,
-      // modalContent: 'please enter value',
-      // variant :'warning',
-
-    }
+    // case "NO_VALUE":
+    //   return {
+    //   ...state,
+    // }
     case "REMOVE_ITEM" :
       if(state.people){
       const newPeople = state.people.filter(people => people.id !== action.payload)
     return {
       ...state,
       people: newPeople,
-      // isModalOpen: true,
-      // modalContent: 'Item Removed',
-      // variant :'danger',
-
       }
     }
     else
@@ -58,7 +54,6 @@ export const modalReducer = ( state:ReducerState ={
       modalContent: 'Showing Nothing',
       variant :'muted',
 } , action: MyAction) : Object => {
-  // console.log("modalReducer",state)
   switch (action.type) {     
     case "SHOW_ADD":
     return{

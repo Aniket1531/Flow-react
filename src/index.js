@@ -7,15 +7,15 @@ import './index.css';
 import NavbarC from './Component/Navbar';
 import App from './Component/App'
 // import {reducer} from "./reducer/reducer"
-import {formReducer,modalReducer} from "./reducer/reducer"
+import {formReducer,listReducer,modalReducer} from "./reducer/reducer"
 import {Provider} from "react-redux"
 import { Container,Jumbotron} from 'react-bootstrap';
 import {createStore,combineReducers} from "redux"
 
 const rootReducer = combineReducers({
-    fReducer : formReducer,
+    fReducer: formReducer,
+    lReducer : listReducer,
     mReducer : modalReducer,
-    // lReducer: listReducer
 })
 
 const store = createStore

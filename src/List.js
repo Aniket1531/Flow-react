@@ -37,7 +37,7 @@ export class List extends Component<ListProps> {
 const mapStateToProps = (state ) =>{
 
   return {              
-      people : state.fReducer.people,
+      people : state.lReducer.people,
   }
 }
 
