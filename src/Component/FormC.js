@@ -28,12 +28,14 @@ class FormC extends Component<FormProps,FormState> {
       {if(this.props.addPerson )
       {
         this.props.addPerson(newItem)
+      if(this.props.addName){
+         this.props.addName("")
+         }
       }
       this.props.showAdd()
       }
-      if(this.props.addName){
-     this.props.addName()
-    }}
+     
+     }
     else{
       if(this.props.showNothing)
       {if(this.props.noValue)
@@ -45,8 +47,8 @@ class FormC extends Component<FormProps,FormState> {
     }
   }
 
-  handleAdd : function = (e: SyntheticEvent<> & {target: window.HTMLInputElement})  =>{
-   
+  handleName : function = (e: SyntheticEvent<> & {target: window.HTMLInputElement})  =>{
+   e.preventDefault()
     if(this.props.addName)
     {
       this.props.addName((e.target: window.HTMLInputElement).value)
@@ -65,7 +67,7 @@ class FormC extends Component<FormProps,FormState> {
         <Form onSubmit={this.handleAdd} > 
         <Form.Group controlId="formBasicEmail">
         {/* <Form.Label>Name</Form.Label> */}
-        <Form.Control  placeholder="Add Name" value={this.props.name} onChange={this.handleAdd} />
+        <Form.Control  placeholder="Add Name" value={this.props.name} onChange={this.handleName} />
         </Form.Group>
         <Button variant="primary" type="submit">
          Add People
@@ -78,7 +80,7 @@ class FormC extends Component<FormProps,FormState> {
 }
 
 const mapStateToProps = (state ) =>{
-    console.log(state)
+
   return {              
       name : state.fReducer.name,
   }
