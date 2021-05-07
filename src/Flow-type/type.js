@@ -1,16 +1,21 @@
 // @flow
 
+
 export type person = {
     id: string,
     name: string,   
 }
+
+
 
 export type FormProps ={
    addPerson? : (person)=>{},
    noValue? : ()=>{},
    showAdd? : ()=>{},
    showNothing? :()=>{},
-   name : string
+   name : string,
+   addName? :(value:string)=>{},
+   
 
 }
 export type FormState ={

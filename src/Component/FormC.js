@@ -6,7 +6,7 @@ import {connect} from 'react-redux'
 import { bindActionCreators } from 'redux'
 import type {FormProps,FormState} from "../Flow-type/type.js"
 import Modal from "./Modal"
-import {addPerson,noValue,showAdd,showNothing} from "../Action/action"
+import {addPerson,noValue,addName,showAdd,showNothing} from "../Action/action"
 
 
 class FormC extends Component<FormProps,FormState> {
@@ -31,8 +31,9 @@ class FormC extends Component<FormProps,FormState> {
       }
       this.props.showAdd()
       }
-      this.setState({name : ""})
-    }
+      if(this.props.addName){
+     this.props.addName()
+    }}
     else{
       if(this.props.showNothing)
       {if(this.props.noValue)
@@ -43,10 +44,20 @@ class FormC extends Component<FormProps,FormState> {
       }
     }
   }
-  
+
+  handleAdd : function = (e: SyntheticEvent<> & {target: window.HTMLInputElement})  =>{
+   
+    if(this.props.addName)
+    {
+      this.props.addName((e.target: window.HTMLInputElement).value)
+    }
+  }
+
+
+
 
   render(): React.Node  {
-  console.log("helo",this)
+
     return (
       <div>
         <div>
@@ -54,7 +65,7 @@ class FormC extends Component<FormProps,FormState> {
         <Form onSubmit={this.handleAdd} > 
         <Form.Group controlId="formBasicEmail">
         {/* <Form.Label>Name</Form.Label> */}
-        <Form.Control  placeholder="Add Name" value={this.props.name} onChange={(e :SyntheticInputEvent<HTMLInputElement>)=>{this.setState({name : e.target.value})}} />
+        <Form.Control  placeholder="Add Name" value={this.props.name} onChange={this.handleAdd} />
         </Form.Group>
         <Button variant="primary" type="submit">
          Add People
@@ -75,7 +86,7 @@ const mapStateToProps = (state ) =>{
 
 
 const mapDispatchToProps = (dispatch) =>{ 
-  return bindActionCreators({addPerson,noValue,showAdd,showNothing},dispatch)
+  return bindActionCreators({addPerson,noValue,addName,showAdd,showNothing},dispatch)
     //  addPerson : (newItem)=> dispatch(addPerson(newItem)),
     //  noValue :  ()=>dispatch(noValue()),
   

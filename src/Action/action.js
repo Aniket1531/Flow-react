@@ -23,9 +23,17 @@ export const deletePerson = (id : string)=>{
         payload : id
     }
 }
+
 export const closeModal = ()=>{
     return {
         type : 'CLOSED_MODAL'
+    }
+}
+
+export const addName = (name : string = "")=>{
+    return{
+        type :'ADD_NAME',
+        payload : name
     }
 }
 

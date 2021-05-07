@@ -9,9 +9,17 @@ export const formReducer = (state:ReducerState ={
       return {
       ...state,
     }
+    case "ADD_NAME":
+    {
+      return{
+        ...state,
+        name: action.payload
+      }
+    }
     default:
      return state 
      }
+     
 }
 
 export const listReducer = (state:ReducerState ={
