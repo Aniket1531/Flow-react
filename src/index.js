@@ -1,13 +1,13 @@
 // @flow
-
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import NavbarC from './Component/Navbar';
 import App from './Component/App'
-// import {reducer} from "./reducer/reducer"
-import {formReducer,listReducer,modalReducer} from "./reducer/reducer"
+import {formReducer} from "./reducer/formReducer"
+import {listReducer} from "./reducer/listReducer"
+import {modalReducer} from "./reducer/modalReducer"
 import {Provider} from "react-redux"
 import { Container,Jumbotron} from 'react-bootstrap';
 import {createStore,combineReducers} from "redux"
@@ -19,23 +19,20 @@ const rootReducer = combineReducers({
 })
 
 const store = createStore
-(rootReducer,
+  (rootReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 
 
-
 ReactDOM.render(
   <Provider store={store}>
-  <Container fluid className="container">
-    <NavbarC />
-    <Jumbotron className="jumbotrom">
-        <App/>
-   </Jumbotron>
-</Container>
-</Provider>
+    <Container fluid className="container">
+      <NavbarC />
+        <Jumbotron className="jumbotrom">
+          <App/>
+        </Jumbotron>
+    </Container>
+  </Provider>
   ,
   document.getElementById('root')
 );
-
-

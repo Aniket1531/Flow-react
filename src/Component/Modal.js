@@ -9,51 +9,39 @@ import {closeModal} from "../Action/action"
 
 
 export class Modal extends Component<ModalProps> {
-
-  
   componentDidUpdate(){
-    
   setTimeout(()=>{
-    
     if(this.props.closeModal)
     {
       this.props.closeModal()
     }
-  }
-  ,3000)
-
-  }
-
-
-  render(): React.Node {
+  },3000)
+}
+  render(): React.Node{
     return (
         <div  >
             <Alert variant={this.props.variant} className={this.props.isModalOpen?'show':'hide'}>
                 <center>
                     <h6>{this.props.modalContent} </h6>
-            </center>
-      </Alert>
+                </center>
+            </Alert>
         </div>
-    )
-    
-  }
+        )
+      }
 }
 
 const mapStateToProps = (state) =>{
-  
   return {
       modalContent : state.mReducer.modalContent,
       variant : state.mReducer.variant,
       isModalOpen : state.mReducer.isModalOpen
-      
+    }
   }
-}
 
-const mapDispatchToProps = (dispatch) =>{
-   
+const mapDispatchToProps = (dispatch) =>{  
+
   return bindActionCreators({closeModal},dispatch)
-  //     closeModal : ()=> dispatch(closeModal())
-  // }
+
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Modal)

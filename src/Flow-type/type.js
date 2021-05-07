@@ -1,26 +1,22 @@
 // @flow
 
-
 export type person = {
-    id: string,
-    name: string,   
+    id : string,
+    name : string,   
 }
 
-
-
-export type FormProps ={
+export type FormProps = {
    addPerson? : (person)=>{},
    noValue? : ()=>{},
    showAdd? : ()=>{},
-   showNothing? :()=>{},
+   showNothing? : ()=>{},
    name : string,
-   addName? :(value:string)=>{},
-   
-
+   addName? : (value:string)=>{},
 }
+
 export type FormState ={
-  name? :string,
-  modalOpen?:boolean
+  name? : string,
+  modalOpen? : boolean
 }
 
 export type ModalProps = {
@@ -35,48 +31,16 @@ export type ListProps = {
     people? : Array<person>,
     deletePerson? : (id : string)=>{},
     showDelete? : ()=>{}
-
 }
 
 export type ReducerState = {
      people? : Array<person>,
      modalContent? : string,
      variant? : string,
-     name? :string
-     
+     name? : string
 }
 
 export type MyAction = {
-  +type: string,
+  +type : string,
   payload : person
-
 }
-
-
-
-// export type MyProps = {
-    
-//     isModalOpen? : boolean,
-//     addPerson? : (person)=>{},
-//     noValue? : ()=>{},
-//     people? : Array<person>,
-//     deletePerson? : (id : string)=>{},
-//     modalContent? : string,
-//     variant? : string,
-//     closeModal? : ()=>{}      
-// }
-
-// export type MyState = {
-
-//   isModalOpen?: boolean,
-//   people? : Array<person>,
-//   modalContent? : string,
-//   variant? : string,
-//   name? :string
-// }
-
-
-
-
-
-

@@ -6,12 +6,10 @@ export const addPerson= (newItem : person)=>{
        return {
            type : 'ADD_ITEM',
            payload : newItem
-       }
-    
-}
+           }           
+    }
 
 export const noValue = ()=>{
-
     return {
         type : 'NO_VALUE'
     }

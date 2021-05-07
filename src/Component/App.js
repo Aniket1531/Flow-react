@@ -14,9 +14,9 @@ class App extends Component<{}> {
         <FormC/> 
         <List />
       </section>
-    
      )
   }
 
 }
+
 export default App
